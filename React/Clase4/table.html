@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UsersTable – Vista (HTML + Tailwind)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50">
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <!-- Header -->
+    <header class="mb-6">
+      <h1 class="text-2xl font-bold text-slate-900">Usuarios (Tabla)</h1>
+      <p class="text-slate-600">Vista estática para migrar luego a JSX con React.</p>
+    </header>
+
+    <!-- Tabla -->
+    <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <table class="min-w-full text-sm">
+        <thead class="bg-slate-100 text-left text-slate-700">
+          <tr>
+            <th class="p-3 font-semibold">Avatar</th>
+            <th class="p-3 font-semibold">Nombre</th>
+            <th class="p-3 font-semibold">Email</th>
+            <th class="p-3 font-semibold">País</th>
+            <th class="p-3 font-semibold">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <!-- 1 -->
+          <tr class="hover:bg-slate-50">
+            <td class="p-3">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar de John Carter" class="w-10 h-10 rounded-full object-cover ring-2 ring-slate-200" />
+            </td>
+            <td class="p-3 text-slate-800">John Carter</td>
+            <td class="p-3">
+              <a href="mailto:john.carter@example.com" class="text-indigo-600 hover:underline">john.carter@example.com</a>
+            </td>
+            <td class="p-3 text-slate-700">United States</td>
+            <td class="p-3">
+              <button class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700">Ver detalle</button>
+            </td>
+          </tr>
+          <!-- 2 -->
+          <tr class="hover:bg-slate-50">
+            <td class="p-3">
+              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Avatar de María López" class="w-10 h-10 rounded-full object-cover ring-2 ring-slate-200" />
+            </td>
+            <td class="p-3 text-slate-800">María López</td>
+            <td class="p-3">
+              <a href="mailto:maria.lopez@example.com" class="text-indigo-600 hover:underline">maria.lopez@example.com</a>
+            </td>
+            <td class="p-3 text-slate-700">Spain</td>
+            <td class="p-3">
+              <button class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700">Ver detalle</button>
+            </td>
+          </tr>
+          <!-- 3 -->
+          <tr class="hover:bg-slate-50">
+            <td class="p-3">
+              <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Avatar de Lucas Pereira" class="w-10 h-10 rounded-full object-cover ring-2 ring-slate-200" />
+            </td>
+            <td class="p-3 text-slate-800">Lucas Pereira</td>
+            <td class="p-3">
+              <a href="mailto:lucas.pereira@example.com" class="text-indigo-600 hover:underline">lucas.pereira@example.com</a>
+            </td>
+            <td class="p-3 text-slate-700">Brazil</td>
+            <td class="p-3">
+              <button class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700">Ver detalle</button>
+            </td>
+          </tr>
+          <!-- 4 -->
+          <tr class="hover:bg-slate-50">
+            <td class="p-3">
+              <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="Avatar de Claire Dubois" class="w-10 h-10 rounded-full object-cover ring-2 ring-slate-200" />
+            </td>
+            <td class="p-3 text-slate-800">Claire Dubois</td>
+            <td class="p-3">
+              <a href="mailto:claire.dubois@example.com" class="text-indigo-600 hover:underline">claire.dubois@example.com</a>
+            </td>
+            <td class="p-3 text-slate-700">France</td>
+            <td class="p-3">
+              <button class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700">Ver detalle</button>
+            </td>
+          </tr>
+          <!-- 5 -->
+          <tr class="hover:bg-slate-50">
+            <td class="p-3">
+              <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Avatar de Sofía Martínez" class="w-10 h-10 rounded-full object-cover ring-2 ring-slate-200" />
+            </td>
+            <td class="p-3 text-slate-800">Sofía Martínez</td>
+            <td class="p-3">
+              <a href="mailto:sofia.martinez@example.com" class="text-indigo-600 hover:underline">sofia.martinez@example.com</a>
+            </td>
+            <td class="p-3 text-slate-700">Argentina</td>
+            <td class="p-3">
+              <button class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700">Ver detalle</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Nota didáctica -->
+    <p class="text-xs text-slate-500 mt-3">
+      *Esta vista es estática para fines de demostración. En React, reemplazarás los datos duros por el estado proveniente del hook y mapearás filas dinámicamente.*
+    </p>
+  </main>
+</body>
+</html>
