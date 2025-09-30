@@ -1,8 +1,7 @@
-import { useCart } from "../hooks/useCart";
+import { memo } from "react";
 
-export default function MovieCard({ movie }) {
-  const { addItem } = useCart();
-
+function MovieCard({ movie, addItem }) {
+  console.log("Renderizando MovieCard:", movie.title);
   return (
     <div className="bg-white rounded-lg shadow-md p-4">
       <img
@@ -29,3 +28,5 @@ export default function MovieCard({ movie }) {
     </div>
   );
 }
+
+export default memo(MovieCard);

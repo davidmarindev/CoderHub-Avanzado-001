@@ -1,0 +1,11 @@
+# Metodos de autenticacion
+
+1. Basic Auth
+2. Session Based Auth
+3. ST - Simple Token Auth
+4. JWT - Json Web Token
+5. OAuth
+
+Ir a Auth strategies
+
+https://roadmap.sh/frontend

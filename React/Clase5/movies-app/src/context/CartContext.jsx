@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useMemo } from "react";
 const RENT_PRICE = import.meta.env.VITE_RENT_PRICE || 4.99;
 
 const CartContext = createContext();
@@ -20,7 +20,10 @@ export function CartProvider({ children }) {
     setItems([]);
   };
 
-  const totalPrice = (items.length * RENT_PRICE).toFixed(2);
+  const totalPrice = useMemo(
+    () => (items.length * RENT_PRICE).toFixed(2),
+    [items]
+  );
 
   return (
     <CartContext.Provider
@@ -31,6 +34,7 @@ export function CartProvider({ children }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useCartContext() {
   const context = useContext(CartContext);
   if (!context) {
