@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import userRoutes from "./routes/userRoutes.js";
+import routes from "./routes/index.js";
 const app = express();
 import dotenv from "dotenv";
 dotenv.config();
@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
   res.send("Hello World from CoderHub Class!");
 });
 
-app.use("/api", userRoutes);
+app.use("/api", routes);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

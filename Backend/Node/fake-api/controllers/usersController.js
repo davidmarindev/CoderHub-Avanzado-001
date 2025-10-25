@@ -1,49 +1,75 @@
-import prisma from "../lib/prisma.js";
+import usersService from "../services/users.service.js";
 
 const index = async (req, res) => {
-  const users = await prisma.user.findMany();
-
+  const users = await usersService.getAllUsers();
   res.json(users);
 };
 
 const show = async (req, res) => {
   const { id } = req.params;
-  const user = await prisma.user.findUnique({
-    where: { id: Number(id) },
-  });
-
+  const user = await usersService.getUserById(id);
   if (!user) {
+    return res.status(404).json({ error: "User not found" });
+  }
+  res.json(user);
+};
+
+const create = async (req, res) => {
+  try {
+    const user = await usersService.createUser(req.body);
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const update = async (req, res) => {
+  const { id } = req.params;
+  const { name, lastname, email, username } = req.body;
+
+  const updatedUser = await usersService.updateUser(id, {
+    name,
+    lastname,
+    email,
+    username,
+  });
+  if (!updatedUser) {
     return res.status(404).json({ error: "User not found" });
   }
 
   res.json(user);
 };
 
-const update = async (req, res) => {
-  const { id } = req.params;
-  const { name, lastname, email } = req.body;
-
-  const updatedUser = await prisma.user.update({
-    where: { id: Number(id) },
-    data: { name, lastname, email },
-  });
-
-  res.json(updatedUser);
-};
-
 const deleteUser = async (req, res) => {
   const { id } = req.params;
 
-  await prisma.user.delete({
-    where: { id: Number(id) },
-  });
+  try {
+    await usersService.deleteUser(id);
+    res.status(204).end();
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 
-  res.status(204).end();
+const postByUser = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await usersService.getUserById(id);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    const posts = await usersService.getPostsByUserId(id);
+    res.json({ user, posts });
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
 };
 
 export default {
   index,
   show,
+  create,
   update,
   deleteUser,
+  postByUser,
 };
