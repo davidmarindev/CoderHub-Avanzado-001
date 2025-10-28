@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Welcome to CoderHub</h1>
+  <p>Your one-stop solution for all coding needs.</p>
+
+  <h2> Users Count </h2>
+  <p><%= userCount %></p>
+
+  <h2> Posts Count </h2>
+  <p><%= postCount %></p>
+
+  <h2> Users List </h2>
+  <ul>
+    <% users.forEach(user => { %>
+      <li><%= user.name %> - <%= user.email %></li>
+    <% }); %>
+  </ul>
+
+  <h2> Posts List </h2>
+  <ul>
+    <% posts.forEach(post => { %>
+      <li><%= post.title %> - <%= post.content %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>

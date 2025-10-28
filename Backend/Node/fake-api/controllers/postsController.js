@@ -1,9 +1,10 @@
-import { th } from "zod/v4/locales";
 import prisma from "../lib/prisma.js";
+import { serializePost } from "../serializers/post.serializer.js";
+import { present } from "../serializers/base.serializer.js";
 
 const index = async (req, res) => {
   const posts = await prisma.post.findMany();
-  res.json(posts);
+  res.json(present(posts, serializePost));
 };
 
 const show = async (req, res) => {
@@ -14,7 +15,7 @@ const show = async (req, res) => {
   if (!post) {
     return res.status(404).json({ error: "Post not found" });
   }
-  res.json(post);
+  res.json(present(post, serializePost));
 };
 
 const create = async (req, res) => {
@@ -33,7 +34,7 @@ const create = async (req, res) => {
     const newPost = await prisma.post.create({
       data: postData,
     });
-    res.status(201).json(newPost);
+    res.status(201).json(present(newPost, serializePost));
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

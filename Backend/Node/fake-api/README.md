@@ -105,3 +105,16 @@ Esto aplicará las migraciones y generará el cliente de Prisma.
        .finally(async () => {
            await prisma.$disconnect();
        });
+
+## Añadir autenticación con JWT
+
+1. **Instalar dependencias necesarias:**
+   ```bash
+   npm install jsonwebtoken
+   ```
+2. **Crear funciones para generar y verificar tokens JWT:**
+
+3. **Implementar middleware de autenticación:**
+
+4. **Proteger rutas específicas:**
+   Usa el middleware de autenticación en las rutas que deseas proteger.

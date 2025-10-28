@@ -1,8 +1,9 @@
 import express from "express";
 import usersController from "../controllers/usersController.js";
+import authMiddleware from "../middlewares/authMiddleware.js";
 const router = express.Router();
 
-router.get("/", usersController.index);
+router.get("/", authMiddleware, usersController.index);
 
 router.get("/:id", usersController.show);
 

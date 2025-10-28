@@ -1,8 +1,11 @@
 import usersService from "../services/users.service.js";
+import { present } from "../serializers/base.serializer.js";
+import { serializeUser } from "../serializers/user.serializer.js";
+import { serializePost } from "../serializers/post.serializer.js";
 
 const index = async (req, res) => {
   const users = await usersService.getAllUsers();
-  res.json(users);
+  res.json(present(users, serializeUser));
 };
 
 const show = async (req, res) => {
@@ -11,13 +14,14 @@ const show = async (req, res) => {
   if (!user) {
     return res.status(404).json({ error: "User not found" });
   }
-  res.json(user);
+  res.json(present(user, serializeUser));
 };
 
 const create = async (req, res) => {
   try {
+    console.log("Creating user with data:", req.body);
     const user = await usersService.createUser(req.body);
-    res.status(201).json(user);
+    res.status(201).json(present(user, serializeUser));
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -37,7 +41,7 @@ const update = async (req, res) => {
     return res.status(404).json({ error: "User not found" });
   }
 
-  res.json(user);
+  res.json(present(updatedUser, serializeUser));
 };
 
 const deleteUser = async (req, res) => {
@@ -59,7 +63,10 @@ const postByUser = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
     const posts = await usersService.getPostsByUserId(id);
-    res.json({ user, posts });
+    res.json({
+      user: present(user, serializeUser),
+      posts: present(posts, serializePost),
+    });
   } catch (error) {
     return res.status(400).json({ error: error.message });
   }
