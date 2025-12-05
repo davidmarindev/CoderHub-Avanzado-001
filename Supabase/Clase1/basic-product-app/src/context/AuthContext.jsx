@@ -41,7 +41,7 @@ export function AuthProvider({ children }) {
     };
   }, []);
 
-  const user = session?.user ?? null;
+  const user = session?.user §?? null;
 
   return (
     <AuthContext.Provider

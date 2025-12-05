@@ -1,0 +1,43 @@
+{
+  "name": "backgroundjobs-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"nodemon index.js\" \"nodemon worker.js\"",
+    "simple-dev": "nodemon index.js",
+    "start": "node index.js",
+    "workers": "nodemon worker.js",
+    "db:init": "npx sequelize-cli init",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "worker:products": "node jobs/workers/products.worker.js",
+    "worker:email": "node jobs/workers/email.worker.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@bull-board/api": "^6.14.2",
+    "@bull-board/express": "^6.14.2",
+    "bullmq": "^5.63.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "exceljs": "^4.4.0",
+    "express": "^5.1.0",
+    "ioredis": "^5.8.2",
+    "morgan": "^1.10.1",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^7.0.10",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.1.0",
+    "@sequelize/cli": "^7.0.0-alpha.47",
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.11"
+  }
+}

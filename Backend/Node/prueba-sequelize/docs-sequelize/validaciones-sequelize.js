@@ -28,6 +28,7 @@ validate: { isInt: true }
 // 	 Solo letras / letras+números, ejemplo:	
 
 validate: { isAlpha: true }
+
 // isIn / notIn ->
 // Dentro o fuera de una lista, ejemplo: 
 

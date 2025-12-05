@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  api:
+    build: .
+    container_name: api
+    ports: [ "3000:3000" ]
+    env_file: .env
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - .:/app
+  db:
+    image: postgres:15
+    container_name: db
+    environment:
+      POSTGRES_USER: ${PGUSER}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_DB: ${PGDATABASE}
+    ports: [ "9992:5432" ]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports: [ "6379:6379" ]
+volumes:
+  pgdata:

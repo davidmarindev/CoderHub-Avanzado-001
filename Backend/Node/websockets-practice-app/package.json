@@ -1,0 +1,20 @@
+{
+  "name": "websockets-practice-app",
+  "version": "1.0.0",
+  "description": "A Node.js and Express application for practicing WebSockets with user and group messaging.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.0.0",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}

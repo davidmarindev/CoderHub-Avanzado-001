@@ -1,0 +1,42 @@
+[
+	{
+		"title": "Laptop Gamer",
+		"price": 1500.99,
+		"description": "Laptop de alto rendimiento para gaming.",
+		"image": "https://example.com/laptop.jpg",
+		"category": "Electronics",
+		"externalId": 1
+	},
+	{
+		"title": "Auriculares Bluetooth",
+		"price": 99.99,
+		"description": "Auriculares inalámbricos con cancelación de ruido.",
+		"image": "https://example.com/headphones.jpg",
+		"category": "Audio",
+		"externalId": 2
+	},
+	{
+		"title": "Silla Ergonómica",
+		"price": 250.00,
+		"description": "Silla cómoda para oficina o gaming.",
+		"image": "https://example.com/chair.jpg",
+		"category": "Furniture",
+		"externalId": 3
+	},
+	{
+		"title": "Smartphone Última Generación",
+		"price": 899.99,
+		"description": "Smartphone con cámara avanzada y pantalla OLED.",
+		"image": "https://example.com/smartphone.jpg",
+		"category": "Electronics",
+		"externalId": 4
+	},
+	{
+		"title": "Reloj Inteligente",
+		"price": 199.99,
+		"description": "Reloj con monitor de actividad y notificaciones.",
+		"image": "https://example.com/smartwatch.jpg",
+		"category": "Wearables",
+		"externalId": 5
+	}
+]

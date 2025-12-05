@@ -1,0 +1,28 @@
+{
+  "name": "backgroundjobs-app",
+  "version": "1.0.0",
+  "description": "Node.js application using Express, Sequelize, PostgreSQL, Redis, and BullMQ.",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "db:init": "sequelize init",
+    "db:migrate": "sequelize db:migrate",
+    "db:seed": "sequelize db:seed:all"
+  },
+  "dependencies": {
+    "bullmq": "^1.0.0",
+    "dotenv": "^17.2.3",
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "redis": "^3.1.2",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "sequelize-cli": "^6.6.3"
+  },
+  "author": "",
+  "license": "ISC"
+}
