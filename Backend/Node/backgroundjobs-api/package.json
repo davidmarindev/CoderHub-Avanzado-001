@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"nodemon index.js\" \"nodemon worker.js\"",
-    "simple-dev": "nodemon index.js",
-    "start": "node index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "dev": "concurrently \"nodemon server.js\" \"nodemon worker.js\"",
+    "simple-dev": "nodemon server.js",
+    "start": "node server.js",
     "workers": "nodemon worker.js",
     "db:init": "npx sequelize-cli init",
     "db:migrate": "npx sequelize-cli db:migrate",
@@ -38,6 +40,8 @@
     "@faker-js/faker": "^10.1.0",
     "@sequelize/cli": "^7.0.0-alpha.47",
     "concurrently": "^9.2.1",
-    "nodemon": "^3.1.11"
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.11",
+    "supertest": "^7.1.4"
   }
 }

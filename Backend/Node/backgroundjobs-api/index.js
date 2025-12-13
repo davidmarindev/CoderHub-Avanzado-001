@@ -4,11 +4,8 @@ const morgan = require("morgan");
 const bullBoard = require("./lib/bullboard");
 const routes = require("./routes");
 const { scheduleProductSync } = require("./jobs/schedulers.js");
-// const { Server } = require("socket.io");
-const setupChatSocket = require("./sockets/chat.js");
 
 const app = express();
-const port = 8000;
 
 app.use(express.json());
 app.use(cors());
@@ -24,11 +21,7 @@ if (process.env.CRON_SYNC === "true") {
   scheduleProductSync();
 }
 
-const server = app.listen(port, () => {
-  console.log("App is listening in port: " + port);
-});
-
-setupChatSocket(server);
+module.exports = app;
 
 // Arquitectura
 
